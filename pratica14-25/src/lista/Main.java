@@ -8,7 +8,7 @@ public class Main {
         ListeConcatenate<Integer> lista=new ListeConcatenate<Integer>();
         int scelta;
         do {
-            System.out.println("Scegli una delle opzioni:" +
+            System.out.println("Scegli una delle opzioni:1\n" +
                     "0- esci\n" +
                     "1- toString\n" +
                     "2- inserimento in testa\n" +

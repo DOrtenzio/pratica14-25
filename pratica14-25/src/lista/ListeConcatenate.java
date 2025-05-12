@@ -24,11 +24,10 @@ public class ListeConcatenate<T> {
         if (isEmpty())
             return "Nessun Elemento Inserito";
         else{
-            String r="";
             Nodo<T> appoggio=head;
-            while (appoggio.getPuntatore()!=null) {
-                r=r+appoggio.toString(); //Costruisco la stringa
-                appoggio=appoggio.getPuntatore(); //Ogni passo dopo
+            String r= "Elementi tot="+size+"\n<<<<<<<<<<<<->>>>>>>>>>>>\n"+appoggio.toString();
+            while ((appoggio=appoggio.getPuntatore())!=null) {
+                r=r+"\n"+appoggio.toString(); //Costruisco la stringa
             }
             return r;
         }
@@ -63,17 +62,22 @@ public class ListeConcatenate<T> {
             return false;
         else {
             int contApp = 0;
-            Nodo<T> app1 = head;
-            while (app1.getPuntatore() != null) {
+            Nodo<T> att = head;
+            Nodo<T> prec=null;
+            while (att.getPuntatore() != null) {
                 if (contApp == posizione) { //trovato
-                    Nodo<T> app2=app1.getPuntatore();
-                    app1.setPuntatore(new Nodo<T>(valDaAggiungere, app2));
-
+                    if (prec != null) {
+                        prec.setPuntatore(new Nodo<T>(valDaAggiungere, att));
+                    } else{
+                        Nodo<T> app2=head;
+                        head=new Nodo<T>(valDaAggiungere, app2);
+                    }
                     size++;
                     return true;
                 } else { //Incrementi
                     contApp++;
-                    app1 = app1.getPuntatore(); //Ogni passo dopo
+                    prec=att;
+                    att = att.getPuntatore();
                 }
             }
         }
