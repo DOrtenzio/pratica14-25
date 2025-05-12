@@ -93,7 +93,7 @@ public class ListeConcatenate<T> {
             Nodo<T> prec=null;
 
             while (att.getPuntatore() != null) {
-                if (att.equals(valRicercato)) {
+                if (att.equals(valRicercato)) { //Necessario definire l'equals
                     if (prec != null) {
                         prec.setPuntatore(new Nodo<T>(valDaAggiungere, att));
                     } else {
@@ -120,7 +120,7 @@ public class ListeConcatenate<T> {
             Nodo<T> prec=null;
 
             while (att.getPuntatore() != null) {
-                if (att.equals(valRicercato)) {
+                if (att.equals(valRicercato)) { //Necessario definire l'equals
                     if (prec != null) {
                         prec.setPuntatore(att.getPuntatore());
                     } else {
