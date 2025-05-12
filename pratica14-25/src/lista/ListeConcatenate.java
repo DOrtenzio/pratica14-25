@@ -21,13 +21,17 @@ public class ListeConcatenate<T> {
 
     @Override
     public String toString(){
-        String r="";
-        Nodo<T> appoggio=head;
-        while (appoggio.getPuntatore()!=null) {
-            r=r+appoggio.toString(); //Costruisco la stringa
-            appoggio=appoggio.getPuntatore(); //Ogni passo dopo
+        if (isEmpty())
+            return "Nessun Elemento Inserito";
+        else{
+            String r="";
+            Nodo<T> appoggio=head;
+            while (appoggio.getPuntatore()!=null) {
+                r=r+appoggio.toString(); //Costruisco la stringa
+                appoggio=appoggio.getPuntatore(); //Ogni passo dopo
+            }
+            return r;
         }
-        return r;
     }
 
     //Inserimenti
@@ -118,7 +122,7 @@ public class ListeConcatenate<T> {
                     } else {
                         head=att.getPuntatore();
                     }
-                    size++;
+                    size--;
                     return true;
                 } else { //Incrementi
                     prec = att;
